@@ -1,0 +1,13 @@
+create or replace noneditionable function TOTAL_DEVOLUCION_USUARIO(USUARIO IN NUMBER, FECHA_ IN DATE) return FLOAT is
+  FunctionResult FLOAT;
+begin
+SELECT SUM(F.TOTAL) INTO FunctionResult
+FROM PV_FACTURA F
+WHERE F.PV_USUARIO_ID = USUARIO AND 
+TRUNC(FECHA_) = TRUNC(sysdate - INTERVAL '0' DAY) AND 
+(F.TIPO_FACTURA = 'DVL' OR F.TIPO_FACTURA = 'dvl')
+GROUP BY F.PV_USUARIO_ID;
+
+  return(FunctionResult);
+end TOTAL_DEVOLUCION_USUARIO;
+/

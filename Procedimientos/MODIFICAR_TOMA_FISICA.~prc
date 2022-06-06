@@ -1,0 +1,12 @@
+create or replace noneditionable procedure MODIFICAR_TOMA_FISICA(toma_fisica_id_ IN NUMBER,
+                                                                 descripcion_    IN VARCHAR2,
+                                                                 fecha_          IN DATE,
+                                                                 estado_         IN VARCHAR2) is
+begin
+  update PV_TOMA_FISICA
+     set descripcion = descripcion_, fecha = fecha_, estado = estado_
+  
+   where toma_fisica_id = toma_fisica_id_;
+
+end MODIFICAR_TOMA_FISICA;
+/

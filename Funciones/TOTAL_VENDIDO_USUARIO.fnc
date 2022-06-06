@@ -1,0 +1,13 @@
+create or replace noneditionable function TOTAL_VENDIDO_USUARIO(USUARIO IN NUMBER, FECHA_ IN DATE) return FLOAT is
+  FunctionResult FLOAT;
+begin
+SELECT SUM(F.TOTAL) INTO FunctionResult
+FROM PV_FACTURA F
+WHERE F.PV_USUARIO_ID = USUARIO AND 
+TRUNC(FECHA) = TRUNC(sysdate - INTERVAL '0' DAY) AND 
+(F.TIPO_FACTURA = 'FAC' OR F.TIPO_FACTURA = 'CPC' OR F.TIPO_FACTURA = 'fac' OR F.TIPO_FACTURA = 'cpc' )
+GROUP BY F.PV_USUARIO_ID;
+
+  return(FunctionResult);
+end TOTAL_VENDIDO_USUARIO;
+/

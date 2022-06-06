@@ -1,0 +1,5 @@
+create or replace noneditionable procedure ELIMINAR_CLIENTE(CLIENTE_ID_ IN INTEGER) is
+begin
+  DELETE FROM PV_CLIENTE C WHERE C.CLIENTE_ID = CLIENTE_ID_;
+end ELIMINAR_CLIENTE;
+/

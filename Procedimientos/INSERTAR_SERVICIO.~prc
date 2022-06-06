@@ -1,0 +1,13 @@
+create or replace noneditionable procedure INSERTAR_SERVICIO(tipo_              VARCHAR2,
+                                                             numero_referencia_ NUMBER,
+                                                             monto_             FLOAT,
+                                                             USUARIO_ID         NUMBER) is
+begin
+
+  INSERT INTO PV_SERVICIO
+    (TIPO, NUMERO_REFERENCIA, MONTO, ESTADO, PV_USUARIO_ID)
+  VALUES
+    (tipo_, numero_referencia_, monto_, 'A', USUARIO_ID);
+
+end INSERTAR_SERVICIO;
+/

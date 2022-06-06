@@ -1,0 +1,18 @@
+create or replace noneditionable procedure MODIFICAR_ROBO_DAÑO(robo_daño_id_ IN NUMBER,
+                                                               pv_sede_id_   IN NUMBER,
+                                                               fecha_        IN DATE,
+                                                               tipo_         IN VARCHAR2,
+                                                               total_        IN FLOAT,
+                                                               estado_       IN VARCHAR2) is
+begin
+  update PV_ROBO_DAÑO
+     set pv_sede_id = pv_sede_id_,
+         fecha      = fecha_,
+         tipo       = tipo_,
+         total      = total_,
+         estado     = estado_
+  
+   where robo_daño_id = robo_daño_id_;
+
+end MODIFICAR_ROBO_DAÑO;
+/

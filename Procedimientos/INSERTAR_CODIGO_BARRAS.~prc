@@ -1,0 +1,9 @@
+create or replace noneditionable procedure INSERTAR_CODIGO_BARRAS(pv_producto_id_ IN NUMBER,
+                                                                  codigo_barras_  IN NUMBER) is
+begin
+  insert into PV_CODIGO_BARRAS_PRODUCTOS
+    (pv_producto_id, codigo_barras, estado)
+  values
+    (pv_producto_id_, codigo_barras_, 'A');
+end INSERTAR_CODIGO_BARRAS;
+/

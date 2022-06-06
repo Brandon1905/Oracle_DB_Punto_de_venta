@@ -1,0 +1,12 @@
+create or replace noneditionable procedure MODIFICAR_FAMILIA(familia_id_  IN NUMBER,
+                                                             tipo_        IN VARCHAR2,
+                                                             descripcion_ IN VARCHAR2,
+                                                             estado_      IN VARCHAR2) is
+begin
+  UPDATE PV_FAMILIA
+     SET tipo = tipo_, descripcion = descripcion_, estado = estado_
+  
+   WHERE familia_id = familia_id_;
+
+end MODIFICAR_FAMILIA;
+/

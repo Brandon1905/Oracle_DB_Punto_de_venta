@@ -1,0 +1,28 @@
+create or replace noneditionable procedure INSERTAR_DECUENTOS(pv_familia_id_     IN NUMBER,
+                                                              pv_proveedor_id_   IN NUMBER,
+                                                              pv_productos_id_   IN NUMBER,
+                                                              pv_inventario_id_  IN NUMBER,
+                                                              descuento_         IN FLOAT,
+                                                              fecha_ingreso_     IN DATE,
+                                                              fecha_vencimiento_ IN DATE) is
+begin
+  insert into PV_DESCUENTOS
+    (pv_familia_id,
+     pv_proveedor_id,
+     pv_productos_id,
+     pv_inventario_id,
+     descuento,
+     fecha_ingreso,
+     fecha_vencimiento,
+     estado)
+  values
+    (pv_familia_id_,
+     pv_proveedor_id_,
+     pv_productos_id_,
+     pv_inventario_id_,
+     descuento_,
+     fecha_ingreso_,
+     fecha_vencimiento_,
+     'A');
+end INSERTAR_DECUENTOS;
+/

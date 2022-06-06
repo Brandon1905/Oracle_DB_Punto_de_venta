@@ -1,0 +1,23 @@
+create or replace noneditionable procedure INSERTAR_DETALLE_INVENTARIO(pv_producto_id_     IN NUMBER,
+                                                                       pv_inventario_id_   IN NUMBER,
+                                                                       cantidad_           IN NUMBER,
+                                                                       porciento_utilidad_ IN FLOAT,
+                                                                       porciento_máximo_   IN FLOAT) is
+begin
+  insert into PV_DETALLE_INVENTARIO
+    (pv_producto_id,
+     pv_inventario_id,
+     cantidad,
+     porciento_utilidad,
+     porciento_máximo,
+     estado)
+  values
+    (pv_producto_id_,
+     pv_inventario_id_,
+     cantidad_,
+     porciento_utilidad_,
+     porciento_máximo_,
+     'A');
+
+end INSERTAR_DETALLE_INVENTARIO;
+/

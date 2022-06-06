@@ -1,0 +1,26 @@
+create or replace noneditionable function REVISAR_USUARIO(USUARIO_ IN VARCHAR2,CONTRASEÑA_ IN VARCHAR2) return number is
+  bol number;
+  CONTRA_AUX VARCHAR2(100);
+  USU VARCHAR2(100);
+  CONTRA VARCHAR2(100);
+  ROL_ VARCHAR2(100);
+begin
+  CONTRA_AUX := ENCRIPTADO(CONTRASEÑA_);
+
+  SELECT U.USUARIO,U.CONTRASEÑA, U.ROL INTO USU, CONTRA, ROL_
+  FROM PV_USUARIOS U
+  WHERE USUARIO_ = U.USUARIO AND CONTRA_AUX = U.CONTRASEÑA;
+  
+  if CONTRA_AUX = CONTRA and USUARIO_ =  USU AND ROL_ = 'GERENTE' then
+   bol := 1;
+   ELSIF CONTRA_AUX = CONTRA and USUARIO_ =  USU AND ROL_ = 'COORDINADOR' then
+    bol := 2; 
+   ELSIF CONTRA_AUX = CONTRA and USUARIO_ =  USU AND ROL_ = 'CAJERO' then
+    bol := 3;
+   ELSIF CONTRA_AUX = CONTRA and USUARIO_ =  USU AND ROL_ = 'ENCARGADO' then
+    bol := 4;    
+  end if; 
+
+  return(bol);
+end REVISAR_USUARIO;
+/

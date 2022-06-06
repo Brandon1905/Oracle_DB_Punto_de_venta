@@ -1,0 +1,5 @@
+create or replace noneditionable procedure ELIMINAR_DESCUENTOS(DESCUENTOS_ID_ NUMBER) is
+begin
+  DELETE FROM PV_DESCUENTOS D WHERE D.DESCUENTOS_ID = DESCUENTOS_ID_;
+end;
+/

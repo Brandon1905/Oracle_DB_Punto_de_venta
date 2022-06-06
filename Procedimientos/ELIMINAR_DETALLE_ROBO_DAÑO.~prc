@@ -1,0 +1,7 @@
+create or replace noneditionable procedure ELIMINAR_DETALLE_ROBO_DAÑO(DETALLE_ROBO_DAÑO_ID_ NUMBER) is
+begin
+  DELETE
+  FROM PV_DETALLE_ROBO_DAÑO D
+  WHERE D.DATELLE_ROBO_DAÑO_ID = DETALLE_ROBO_DAÑO_ID_;
+end ;
+/

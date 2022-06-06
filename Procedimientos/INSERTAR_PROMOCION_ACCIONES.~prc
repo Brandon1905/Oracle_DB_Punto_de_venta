@@ -1,0 +1,31 @@
+create or replace noneditionable procedure INSERTAR_PROMOCION_ACCIONES(PRODUCTO_ID_       IN NUMBER,
+                                                                       CANTIDAD           IN NUMBER,
+                                                                       DESCRIPCION_       IN VARCHAR2,
+                                                                       SEDE_ID            IN NUMBER,
+                                                                       cantidad_acciones_ IN NUMBER,
+                                                                       FECHA_LIMITE       DATE) is
+begin
+  INSERT INTO PV_PROMOCIONES
+    (PV_PRODUCTO_ID,
+     CANTIDAD_PRODUCTOS,
+     ESTADO,
+     DESCRIPCION,
+     PV_SEDE_ID,
+     CANTIDAD_ACCIONES,
+     PRODUCTOS_NN_X_N,
+     PRODUCTOS_N_X_NN,
+     TIPO,
+     FECHA_LIMITE_PROMOCION)
+  VALUES
+    (PRODUCTO_ID_,
+     CANTIDAD,
+     'A',
+     DESCRIPCION_,
+     SEDE_ID,
+     cantidad_acciones_,
+     0,
+     0,
+     'AC',
+     FECHA_LIMITE);
+end INSERTAR_PROMOCION_ACCIONES;
+/

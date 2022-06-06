@@ -1,0 +1,12 @@
+create or replace noneditionable procedure INSERTAR_TIPO_PAGO_DETALLE(pv_factura_id_       IN NUMBER,
+                                                                      tipo_pago_           IN VARCHAR2,
+                                                                      numero_de_documento_ IN VARCHAR2,
+                                                                      monto_               IN FLOAT) is
+begin
+  insert into PV_TIPO_PAGO_DETALLE
+    (pv_factura_id, tipo_pago, numero_de_documento, monto, estado)
+  values
+    (pv_factura_id_, tipo_pago_, numero_de_documento_, monto_, 'A');
+
+end INSERTAR_TIPO_PAGO_DETALLE;
+/
